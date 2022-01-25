@@ -1,0 +1,47 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: unset;
+}
+
+header {
+   background-color: rgb(255,236,208);	
+   font-weight: 300;
+   font-family: "Guardian-EgypTT",Charter,"Charter Bitstream",Cambria,"Noto Serif Light","Droid Serif",Georgia,serif;
+   width: 100%;
+   height: 30vh;
+}
+
+h1 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.image-container {
+    position: relative;
+}
+
+a, a:hover {
+    color: black;
+}
+
+.price {
+    display: inline-block;
+    background-color: rgb(205	236	215	);
+    border-radius: 25%/50%;
+    padding: 3px 8px;
+}
+img, a {
+    width: 100%;
+} 

@@ -10,9 +10,36 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Welcome!</h1>
+    </header>
+
+    <div class="container">
+
+ 
+    <div class="products row data-masonry='{"percentPosition": true }'"></div>
+
+    <script id="product-image-template" type="text/x-handlebars-template">
+
+        {{#each results}}
+            <div class="image-container col-12 col-md-3">
+                <a href="{{this.url}}" target="_blank">
+                    <img class="pic width-100 card-img" src="{{this.Images.[0].url_570xN}}" alt="">
+                    <div class="card-img-overlay">
+                        <div class="price card-text">{{this.price}}</div>
+                    </div>
+                </a>
+            </div>
+        {{/each}}
+
+    </script>
+
+</div>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+        async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
