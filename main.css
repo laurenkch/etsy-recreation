@@ -1,3 +1,7 @@
+:root {
+    --background-color: rgb(255,255,255);
+}
+
 html {
     box-sizing: border-box;
 }
@@ -38,10 +42,41 @@ a, a:hover {
 
 .price {
     display: inline-block;
-    background-color: rgb(205	236	215	);
+    background-color: rgb(205,236,215);
     border-radius: 25%/50%;
     padding: 3px 8px;
+    font-size: 0.8em;
 }
+
 img, a {
     width: 100%;
 } 
+
+.card-img {
+    margin-bottom: 10px;
+}
+
+.search-term-buttons {
+    text-align: center;
+    margin: 25px;
+}
+
+button {
+    text-transform: lowercase;
+    margin: 15px;
+    border: none;
+    background-color: var(--background-color);
+    color: rgb(34, 34, 34);
+}
+
+/* masonry */
+/* 
+.products {
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 20px;
+    text-align: center;
+    margin-top: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+} */

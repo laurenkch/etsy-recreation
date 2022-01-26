@@ -1,7 +1,13 @@
 $(document).ready(function () {
 
+        const button = document.querySelectorAll("button");
         const BASE_URL = 'https://openapi.etsy.com/v2/public/listings/active.js';
-        let searchTerm = 'handmade ceramic mugs';
+        let searchTerm1 = 'handmade ceramic mugs';
+        let searchTerm2 = 'handmade ceramic mugs';
+        let searchTerm3 = 'handmade ceramic mugs';
+        let searchTerm4 = 'handmade ceramic mugs';
+        let searchTerm5 = 'handmade ceramic mugs';
+        let searchTerm6 = 'handmade ceramic mugs';
         let limit = '12';
 
         $.ajax({
@@ -15,7 +21,6 @@ $(document).ready(function () {
                         const template = Handlebars.compile(source);
                         const context = data;
                         const html = template(context);
-                        console.log(html);
                         document.querySelector('.products').innerHTML = html;
 
                 },
@@ -26,5 +31,14 @@ $(document).ready(function () {
                 }
 
         });
+
+
+
+        // button.forEach(button => button.addEventListener("click", function () {
+        //         searchTerm = this.value;
+        //         console.log(this.value);
+        //         console.log(searchTerm);
+        //         console.log($.ajax());
+        // }));
 
 });
