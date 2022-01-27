@@ -48,20 +48,28 @@ a, a:hover {
     font-size: 0.8em;
 }
 
-img, a {
+img {
     width: 100%;
+    max-height: 250px;
+    object-fit: cover;
 } 
 
 .card-img {
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
-.search-term-buttons {
-    text-align: center;
-    margin: 25px;
+.image-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: space-around;
+    height: 160px;
+    margin-top: -52px;
 }
 
 button {
+    position: relative;
+    align-self: center;
     text-transform: lowercase;
     margin: 15px;
     border: none;
@@ -69,14 +77,25 @@ button {
     color: rgb(34, 34, 34);
 }
 
-/* masonry */
-/* 
-.products {
+button:hover::after{
+    content:'';
+    position:absolute;
     width: 100%;
-    margin: 0 auto;
-    display: grid;
-    grid-gap: 20px;
+    height: 0;    
+    left:0;
+    bottom:0px; 
+    border-bottom: 2px solid #000;  
+}
+
+.image {
+    align-self: center;
+    max-width: 100px;
+    max-height: auto;
+    border-radius: 50%;
+    border: solid 1px rgb(222,206,183);
+}
+
+h2  {
     text-align: center;
-    margin-top: 1rem;
-    grid-template-columns: repeat(4, 1fr);
-} */
+    font-size: 1.5em;
+}

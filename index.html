@@ -16,22 +16,20 @@
 
     <div class="container">
 
+        <div class="image-buttons"></div>
+        
+            <script id="search-buttons-template" type="text/x-handlebars-template">
 
-            <div class="search-term-buttons">
-                <button name="mugs" type="button" value="handmade-ceramics"><img src=""/>Handmade Ceramic Mugs</button>
-                <button name="tea-spoon-rest" type="button" value="tea-spoon-rest">Tea Spoon Rests</button>
-                <button name="sweaters" type="button" value="handmade-sweaters">handmade sweaters</button>
-                <button name="sewing-patterns" type="button" value="sewing-patterns">sewing patterns</button>
-                <button name="candles" type="button" value="candles">Candles</button>
-            </div>
-
-            
-
-
+                            <img class ="image" src="{{this.results.[0].Images.[0].url_75x75}}">
+                            <button name="{{this.params.keywords}}" type="button" value="{{this.params.keywords}}">{{this.params.keywords}}</button>
+                            </script>
+    
     <div class="products m-5 row"></div>
 
     <script id="product-image-template" type="text/x-handlebars-template">
-
+                
+        <h2>showing results for "{{this.params.keywords}}"</h2>
+        
         {{#each results}}
 
             <div class="image-container col-12 col-md-3">

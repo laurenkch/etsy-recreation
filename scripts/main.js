@@ -1,44 +1,63 @@
 $(document).ready(function () {
 
-        const button = document.querySelectorAll("button");
+        const buttons = document.querySelectorAll(".image-buttons");
         const BASE_URL = 'https://openapi.etsy.com/v2/public/listings/active.js';
-        let searchTerm1 = 'handmade ceramic mugs';
-        let searchTerm2 = 'handmade ceramic mugs';
-        let searchTerm3 = 'handmade ceramic mugs';
-        let searchTerm4 = 'handmade ceramic mugs';
-        let searchTerm5 = 'handmade ceramic mugs';
-        let searchTerm6 = 'handmade ceramic mugs';
         let limit = '12';
+        let pictures = ['handmade ceramic mugs', 'tea spoon rests', 'handmade sweaters', 'sewing patterns', 'candles'];
 
-        $.ajax({
-                url: `${BASE_URL}?api_key=${API_KEY}&limit=${limit}&includes=Images:1&keywords=${searchTerm}`,
-                dataType: 'jsonp',
-                method: 'GET',
+        function fetchPicture(searchTerm) {
 
-                success: function (data) {
-                        console.log(data);
-                        const source = document.getElementById('product-image-template').innerHTML;
-                        const template = Handlebars.compile(source);
-                        const context = data;
-                        const html = template(context);
-                        document.querySelector('.products').innerHTML = html;
-
-                },
+                $.ajax({
+                        url: `${BASE_URL}?api_key=${API_KEY}&limit=1&includes=Images:1&keywords=${searchTerm}`,
+                        dataType: 'jsonp',
+                        method: 'GET',
 
 
-                error: function (xhr) {
-                        console.log('Uh oh! Something went wrong.', xhr.status);
-                }
+                        success: function (data) {
+                                const source = document.getElementById('search-buttons-template').innerHTML;
+                                const template = Handlebars.compile(source);
+                                const context = data;
+                                const html = template(context);
+                                document.querySelector('.image-buttons').innerHTML += html;
+                                
+                        },
 
-        });
+                        error: function (xhr) {
+                                console.log('Uh oh! Something went wrong.', xhr.status);
+                        }
+
+                });
+        }
+
+        pictures.forEach(fetchPicture);
+
+        function fetchData(searchTerm) {
+                $.ajax({
+                        url: `${BASE_URL}?api_key=${API_KEY}&limit=${limit}&includes=Images:1&keywords=${searchTerm}`,
+                        dataType: 'jsonp',
+                        method: 'GET',
+
+                        success: function (data) {
+                                const source = document.getElementById('product-image-template').innerHTML;
+                                const template = Handlebars.compile(source);
+                                const context = data;
+                                const html = template(context);
+                                document.querySelector('.products').innerHTML = html;
+
+                        },
+
+                              error: function (xhr) {
+                                console.log('Uh oh! Something went wrong.', xhr.status);
+                        }
+
+                });
+        }
+
+        buttons.forEach(button => button.addEventListener("click", function (event) {
+                searchTerm = event.target.value;
+                fetchData(searchTerm);
+        }));
 
 
-
-        // button.forEach(button => button.addEventListener("click", function () {
-        //         searchTerm = this.value;
-        //         console.log(this.value);
-        //         console.log(searchTerm);
-        //         console.log($.ajax());
-        // }));
-
+        fetchData('pots');
 });
